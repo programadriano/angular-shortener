@@ -53,6 +53,19 @@ export class AppComponent {
 }
 ```
 
+## Desenv
+
+To implement your Google Key, just change the key value below:
+
+```typescript
+
+@Injectable()
+export class ShortUrlService {
+  result: any;
+  data: any;
+  key = 'YOUR GOOGLE KEY';
+
+```
 ## License
 
 MIT © [Thiago da Silva Adriano](mailto:tadriano.net@outlook.com)

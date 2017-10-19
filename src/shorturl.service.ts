@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 export class ShortUrlService {
   result: any;
   data: any;
+  key = 'YOUR GOOGLE KEY';
 
   constructor(public http: Http) { }
 
@@ -15,14 +16,11 @@ export class ShortUrlService {
       return Promise.resolve(this.data);
     }
 
-    let key = '';
     let body = { 'longUrl': param };
-    let link = `https://www.googleapis.com/urlshortener/v1/url?key=${key}`;
+    let link = `https://www.googleapis.com/urlshortener/v1/url?key=${this.key}`;
     let dataSync = JSON.stringify(body);
     let headers = new Headers({ 'Content-Type': 'application/json' });
-
     let options = new RequestOptions({ headers: headers });
-
     return new Promise(resolve => {
       this.http.post(link, body, options)
         .map(res => res.json())
